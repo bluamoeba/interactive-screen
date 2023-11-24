@@ -58,8 +58,13 @@ body.compensate-for-scrollbar {
 }
 
 .fancybox-is-open .fancybox-bg {
-    opacity: .9;
+    opacity: 1;
     transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+	
+	background-image: url(../img/step4BG.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .fancybox-infobar,
@@ -398,11 +403,16 @@ body.compensate-for-scrollbar {
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+
+
+
+
 .fancybox-close-small {
     background: transparent;
     border: 0;
     border-radius: 0;
-    color: #fff;
+    color: #d30c2f;
     cursor: pointer;
     opacity: 1;
     padding: 4px;
@@ -410,12 +420,12 @@ body.compensate-for-scrollbar {
     right: -50px;
     top: -44px;
     z-index: 401;
-	    border: 2px solid white;
+	    border: 2px solid #d30c2f;
     border-radius: 50%;
 }
 
 .fancybox-close-small:hover {
-    color: #fff;
+    color: #d30c2f;
     opacity: 1;
 }
 
