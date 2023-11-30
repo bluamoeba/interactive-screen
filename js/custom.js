@@ -112,6 +112,74 @@
 		metronal.dynamicPage(undefined, window.location.hash),
 		metronal.replaceVHeight();
 
+
+
+
+
+		var idleTime = 0;
+		var idleTimeout = 180; // seconds before screensaver starts
+		var videoContainer = $('#video-container');
+		 var wrapper = $('#wrapper');
+		const $screensaverVideo =  $('#screensaver-video'); 
+		const screensaverVideo = $screensaverVideo.get(0);
+	
+	
+		// Function to hide video
+		function hideVideo() {
+			videoContainer.hide();
+				wrapper.show();
+			screensaverVideo.pause();
+			screensaverVideo.currentTime = 0;
+		}
+	
+		// Function to show video
+		function showVideo() {
+					wrapper.hide();
+			videoContainer.show();
+			screensaverVideo.play();
+		}
+	
+		// Hide video on click or touch
+		videoContainer.on('click touchstart', function() {
+			hideVideo();
+		});
+	
+		// Function to check for inactivity and show video after a timeout
+	function checkActivity() {
+			var userIsActive = false;
+	
+			$(document).on('click', function() {
+				userIsActive = true;
+			});
+	
+			setInterval(function() {
+				if (!userIsActive) {
+					idleTime++;
+					if (idleTime >= idleTimeout * 1000 / 100) { // Check if idle for idleTimeout seconds
+						showVideo();
+					}
+				} else {
+					idleTime = 0;
+					userIsActive = false;
+				}
+			}, 100); // Check every 100 milliseconds for activity
+		}
+		checkActivity();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
 	});
 
 })(jQuery);
